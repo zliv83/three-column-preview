@@ -1,0 +1,168 @@
+@layer reset, base, components, utilities;
+
+@layer reset {
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	*:not(dialog) {
+		margin: 0;
+	}
+
+	body {
+		-webkit-font-smoothing: antialiased;
+	}
+
+	img {
+		display: block;
+		max-width: 100%;
+	}
+
+	button {
+		font: inherit;
+	}
+
+	p,
+	h2 {
+		overflow-wrap: break-word;
+	}
+}
+
+@layer base {
+	:root {
+		--gray: hsl(0 0 95);
+		--green-950: hsl(179 100 13);
+		--cyan-800: hsl(184 100 22);
+		--gold-500: hsl(31 77 52);
+
+		--spacing-100: 0.5rem;
+		--spacing-200: 1rem;
+		--spacing-300: 1.5rem;
+		--spacing-400: 2rem;
+		--spacing-500: 2.5rem;
+		--spacing-600: 3rem;
+		--spacing-1000: 5rem;
+		--spacing-1100: 5.5rem;
+	}
+}
+
+@layer components {
+	main {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-block-size: 100vh;
+		padding-block: var(--spacing-1100);
+		padding-inline: var(--spacing-300);
+
+		@media (width >= 768px) {
+			padding-inline: var(--spacing-1000);
+		}
+
+		@media (width >= 1100px) {
+			padding-inline: 16.19rem;
+			padding-block: 9.36rem;
+		}
+	}
+
+	.container {
+		display: grid;
+		grid-template-columns: 1fr;
+		border-radius: var(--spacing-100);
+		overflow: hidden;
+
+		@media (width >= 1100px) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.card {
+		display: grid;
+		grid-template-columns: 1fr;
+		row-gap: var(--spacing-300);
+		padding: var(--spacing-600);
+		background-color: var(--card-color);
+
+		@media (width >= 768px) {
+			padding-inline: var(--spacing-1000);
+		}
+
+		@media (width >= 1100px) {
+			padding-inline: var(--spacing-600);
+		}
+	}
+
+	h2 {
+		margin-top: var(--spacing-100);
+
+		@media (width >= 1100px) {
+			margin-top: var(--spacing-200);
+		}
+	}
+
+	h2,
+	p {
+		color: white;
+	}
+
+	button {
+		justify-self: start;
+		background-color: var(--gray);
+		color: var(--card-color);
+		padding: var(--spacing-100) var(--spacing-400);
+		border-radius: var(--spacing-300);
+		border: 2px solid transparent;
+		cursor: pointer;
+
+		&:active {
+			background-color: var(--card-color);
+			border: 2px solid white;
+			color: white;
+		}
+
+		@media (width >= 1100px) {
+			margin-top: var(--spacing-1000);
+		}
+	}
+
+	.card-1 {
+		--card-color: var(--gold-500);
+	}
+
+	.card-2 {
+		--card-color: var(--cyan-800);
+	}
+
+	.card-3 {
+		--card-color: var(--green-950);
+	}
+}
+
+@layer utilities {
+	.text-1 {
+		font-size: var(--spacing-500);
+		line-height: 1.2;
+		font-family: "Big Shoulders", sans-serif;
+		font-weight: bold;
+	}
+
+	.text-2 {
+		font-family: "Lexend Deca", sans-serif;
+		font-size: 0.938rem;
+		line-height: 1.65;
+	}
+
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
+	}
+}
